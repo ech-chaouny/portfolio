@@ -4,16 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0A0A0A",
-        secondary: "#151514",
-        tertiary: "#20201D",
-        "black-100": "#7E7E77",
-        "black-200": "#696963",
-        "black-300": "#4A4A45",
+        white: "#FBFBF3",
         "white-100": "#EBEBEA",
         "white-200": "#D7D7D5",
         "white-300": "#B0B0AB",
         "white-400": "#92928B",
+        "black-100": "#7E7E77",
+        "black-200": "#696963",
+        "black-300": "#4A4A45",
+        tertiary: "#20201D",
+        secondary: "#151514",
+        primary: "#0A0A0A",
       },
       fontFamily: {
         generalSans: ["General Sans", "sans-serif"],

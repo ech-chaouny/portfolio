@@ -6,4 +6,16 @@
 
 body {
   font-family: "League Spartan", sans-serif;
+  background-color: #FBFBF3;
+}
+
+.cursor {
+  background-color: #696963;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  pointer-events: none;
 }
