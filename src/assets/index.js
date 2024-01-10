@@ -1,2 +1,3 @@
 import Blacklogo from "./blacklogo.svg?react";
-export { Blacklogo };
+import Javascript from "./icons/javascript.svg?react";
+export { Blacklogo, Javascript };

@@ -1,50 +1,55 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const Cursor = ({ cursorVariant }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+const Cursor = ({ stickyElement }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const cursorSize = isHovered ? 200 : 20;
 
+  const mouse = {
+    x: useMotionValue(0),
+    y: useMotionValue(0),
+  };
+  const smoothOptions = { damping: 20, stiffness: 300, mass: 0.5 };
+  const smoothMouse = {
+    x: useSpring(mouse.x, smoothOptions),
+
+    y: useSpring(mouse.y, smoothOptions),
+  };
   const mouseMove = (e) => {
-    setMousePosition({
-      x: e.clientX,
-      y: e.clientY,
-    });
+    const { clientX, clientY } = e;
+    mouse.x.set(clientX - cursorSize / 2);
+    mouse.y.set(clientY - cursorSize / 2);
+  };
+  const mouseOver = (e) => {
+    setIsHovered(true);
+  };
+  const mouseLeave = (e) => {
+    setIsHovered(false);
   };
   useEffect(() => {
+    document.body.style.cursor = isHovered ? "none" : "auto";
+
     window.addEventListener("mousemove", mouseMove);
+    stickyElement.current.addEventListener("mouseover", mouseOver);
+    stickyElement.current.addEventListener("mouseleave", mouseLeave);
+
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+      stickyElement.current.removeEventListener("mouseover", mouseOver);
+      stickyElement.current.removeEventListener("mouseleave", mouseLeave);
     };
   });
-  const variants = {
-    default: {
-      x: mousePosition.x - 10,
-      y: mousePosition.y - 10,
-    },
-    textHover: {
-      width: 150,
-      height: 150,
-      x: mousePosition.x - 75,
-      y: mousePosition.y - 75,
-      backgroundColor: "#EBEBEA",
-      mixBlendMode: "difference",
-    },
-    buttonHover: {
-      width: 100,
-      height: 100,
-      x: mousePosition.x - 50,
-      y: mousePosition.y - 50,
-      backgroundColor: "#EBEBEA",
-      mixBlendMode: "difference",
-    },
-  };
   return (
     <motion.div
-      variants={variants}
-      animate={cursorVariant}
-      transition={{
-        type: "tween",
-        ease: "backOut",
+      style={{
+        left: smoothMouse.x,
+        top: smoothMouse.y,
+      }}
+      animate={{
+        width: cursorSize,
+        height: cursorSize,
+        mixBlendMode: isHovered ? "difference" : "",
+        backgroundColor: isHovered ? "white" : "",
       }}
       className="cursor"
     />

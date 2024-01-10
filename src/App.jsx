@@ -1,23 +1,25 @@
-import { useState } from "react";
+import { useEffect, useRef } from "react";
 import Cursor from "./components/Cursor";
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
+import About from "./pages/About";
 
 const App = () => {
-  const [cursorVariant, setCursorVariant] = useState("default");
-  const textEnter = () => setCursorVariant("textHover");
-  const textLeave = () => setCursorVariant("default");
+  const stickyElement = useRef(null);
+  useEffect(() => {
+    (async () => {
+      const LocomotiveScroll = (await import("locomotive-scroll")).default;
+      const locomotiveScroll = new LocomotiveScroll();
+    })();
+  });
   return (
     <>
-      <Navbar onMouseEnter={textEnter} onMouseLeave={textLeave} />
+      <Navbar />
       <section className="h-screen w-full flex justify-center items-center">
-        <Hero onMouseEnter={textEnter} onMouseLeave={textLeave} />
+        <Hero ref={stickyElement} />
       </section>
-      <Cursor
-        cursorVariant={cursorVariant}
-        textEnter={textEnter}
-        textLeave={textLeave}
-      />
+      <About />
+      <Cursor stickyElement={stickyElement} />
     </>
   );
 };
