@@ -12,11 +12,11 @@ body {
 
 @layer utilities {
   .paddingX {
-    @apply sm:px-36 px-6;
+    @apply xl:px-36 lg:px-16 px-8;
   }
 
   .paddingY {
-    @apply sm:py-16 py-6
+    @apply sm:py-20 py-14
   }
 
   .padding {
@@ -27,10 +27,13 @@ body {
     @apply py-4 flex gap-2 px-6 bg-tertiary saturate-0 hover:saturate-100 rounded-full text-white-100 hover:text-tertiary hover:cursor-pointer hover:bg-white-100 hover:border-black border ease-out duration-500
   }
 
+  .profile {
+    @apply size-auto sl:size-[30rem] lg:size-[35rem] object-cover object-center md:aspect-auto md:rounded-[60px] rounded-[40px] saturate-0 hover:saturate-100 ease-out duration-500
+  }
 }
 
-.duration-900 {
-  transition-duration: 0.9s;
+.duration {
+  transition-duration: 0.5s;
 }
 
 .cursor {

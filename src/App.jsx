@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
 import About from "./pages/About";
 import Lenis from "@studio-freight/lenis";
+import Projects from "./pages/Projects";
+import Contact from "./pages/Contact";
 
 const App = () => {
   const stickyElement = useRef(null);
@@ -19,15 +21,18 @@ const App = () => {
 
   return (
     <section
-      className={`${
-        isDarkMode ? "bg-secondary duration-900" : "bg-white duration-900"
-      }`}
+      className={`${isDarkMode ? "bg-secondary" : "bg-white "} duration`}
     >
       <Navbar isDarkMode={isDarkMode} />
-      <section className="h-screen w-full flex justify-center items-center">
-        <Hero ref={stickyElement} />
+      <section
+        id="hero"
+        className="h-screen w-full flex justify-center items-center"
+      >
+        <Hero ref={stickyElement} isDarkMode={isDarkMode} />
       </section>
       <About setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
+      <Projects isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Contact />
       <Cursor stickyElement={stickyElement} />
     </section>
   );

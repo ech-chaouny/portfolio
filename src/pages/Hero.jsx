@@ -2,6 +2,7 @@ import React, { forwardRef, useLayoutEffect, useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 
 const Hero = forwardRef(function index(props, ref) {
+  console.log(props);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -13,14 +14,19 @@ const Hero = forwardRef(function index(props, ref) {
       ref={ref}
       className="sm:max-w-[80%] max-w-[90%] flex flex-col justify-center items-center text-center"
     >
-      <h1 className="font-black text-secondary font-generalSans xl:leading-[9rem] leading-[3.5rem] xl:text-9xl lg:text-8xl sm:text-7xl text-[50px]">
+      <h1
+        className={`font-black ${
+          props.isDarkMode ? "text-white-300" : "text-secondary"
+        } duration font-generalSans xl:leading-[9rem] leading-[3.5rem] xl:text-9xl lg:text-8xl sm:text-7xl text-[50px]`}
+      >
         Hello, I'm
         <br />
         <span>Smaeel Uny</span>
       </h1>
       <motion.p
-        style={{ y: sm }}
-        className="mt-5 lg:text-3xl sm:text-2xl text-[20px] max-w-[500px] font-generalSans text-secondary font-medium"
+        className={`mt-5 lg:text-3xl sm:text-2xl text-[20px] max-w-[500px] font-generalSans ${
+          props.isDarkMode ? "text-white-300" : "text-secondary"
+        } font-medium duration`}
       >
         A passionate Front-end Developer devoted to the art of coding.
       </motion.p>
