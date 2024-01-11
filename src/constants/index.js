@@ -1,87 +1,62 @@
+import {
+  Css,
+  Html,
+  Javascript,
+  TypeScript,
+  Reactjs,
+  Sass,
+  Nextjs,
+  Tailwindcss,
+} from "../assets";
 
-export const skills = [
+export const technologies = [
   {
-    imageUrl: html,
+    icon: Html,
     name: "HTML",
     type: "Frontend",
   },
 
   {
-    imageUrl: css,
+    icon: Css,
     name: "CSS",
     type: "Frontend",
   },
 
   {
-    imageUrl: javascript,
+    icon: Javascript,
     name: "JavaScript",
     type: "Frontend",
   },
 
   {
-    imageUrl: typescript,
+    icon: TypeScript,
     name: "TypeScript",
     type: "Frontend",
   },
-
   {
-    imageUrl: reactjs,
-    name: "React",
-    type: "Frontend",
-  },
-
-  {
-    imageUrl: nextjs,
-    name: "Next.js",
-    type: "Frontend",
-  },
-
-  {
-    imageUrl: github,
-    name: "GitHub",
-    type: "Version Control",
-  },
-
-  {
-    imageUrl: mongodb,
-    name: "MongoDB",
-    type: "Database",
-  },
-
-  {
-    imageUrl: motion,
-    name: "Motion",
-    type: "Animation",
-  },
-
-  {
-    imageUrl: mui,
-    name: "Material-UI",
-    type: "Frontend",
-  },
-
-  {
-    imageUrl: nodejs,
-    name: "Node.js",
-    type: "Backend",
-  },
-  {
-    imageUrl: express,
-    name: "Express",
-    type: "Backend",
-  },
-  {
-    imageUrl: redux,
-    name: "Redux",
-    type: "State Management",
-  },
-  {
-    imageUrl: sass,
+    icon: Sass,
     name: "Sass",
     type: "Frontend",
   },
   {
-    imageUrl: tailwindcss,
+    icon: Reactjs,
+    name: "React JS",
+    type: "Frontend",
+  },
+
+  {
+    icon: Nextjs,
+    name: "Next JS",
+    type: "Frontend",
+  },
+  //   {
+  //     icon: motion,
+  //     name: "Motion",
+  //     type: "Animation",
+  //   },
+
+  {
+    icon: Tailwindcss,
     name: "Tailwind CSS",
     type: "Frontend",
   },

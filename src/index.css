@@ -9,6 +9,7 @@ body {
   background-color: #F5F3EF;
 }
 
+
 @layer utilities {
   .paddingX {
     @apply sm:px-36 px-6;
@@ -21,6 +22,15 @@ body {
   .padding {
     @apply sm:px-16 px-6 sm:py-16 py-10
   }
+
+  .technologies {
+    @apply py-4 flex gap-2 px-6 bg-tertiary saturate-0 hover:saturate-100 rounded-full text-white-100 hover:text-tertiary hover:cursor-pointer hover:bg-white-100 hover:border-black border ease-out duration-500
+  }
+
+}
+
+.duration-900 {
+  transition-duration: 0.9s;
 }
 
 .cursor {
