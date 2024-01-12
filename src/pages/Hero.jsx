@@ -1,5 +1,6 @@
 import React, { forwardRef, useLayoutEffect, useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
+import { Ismael, IsmaelSmile } from "../assets";
 
 const Hero = forwardRef(function index(props, ref) {
   console.log(props);
@@ -12,19 +13,20 @@ const Hero = forwardRef(function index(props, ref) {
   return (
     <div
       ref={ref}
-      className="sm:max-w-[80%] max-w-[90%] flex flex-col justify-center items-center text-center"
+      className="flex flex-col justify-center items-center text-center pt-10"
     >
+      <IsmaelSmile className="w-60" />
       <h1
         className={`font-black ${
           props.isDarkMode ? "text-white-300" : "text-secondary"
-        } duration font-generalSans xl:leading-[9rem] leading-[3.5rem] xl:text-9xl lg:text-8xl sm:text-7xl text-[50px]`}
+        } duration font-generalSans text-[60px] mt-5 tracking-tight leading-tight`}
       >
         Hello, I'm
         <br />
-        <span>Smaeel Uny</span>
+        <span>Ismael Ech-chaouny</span>
       </h1>
       <motion.p
-        className={`mt-5 lg:text-3xl sm:text-2xl text-[20px] max-w-[500px] font-generalSans ${
+        className={`mt-5 text-[20px] max-w-[500px] font-generalSans ${
           props.isDarkMode ? "text-white-300" : "text-secondary"
         } font-medium duration`}
       >

@@ -13,7 +13,7 @@ const About = ({ setIsDarkMode, isDarkMode }) => {
   });
   useEffect(() => {
     scrollYProgress.onChange((latest) => {
-      if (latest >= 0.2 && latest <= 0.7) {
+      if (latest >= 0.25 && latest <= 0.7) {
         setIsDarkMode(true);
       } else {
         setIsDarkMode(false);

@@ -32,7 +32,7 @@ const Projects = ({ isDarkMode, setIsDarkMode }) => {
       >
         PROJECTS
       </h1>
-      <div className="px-32 flex flex-row items-center h-[500px] my-14 w-[1125px] bg-tertiary rounded-[200px] gap-10">
+      <div className="px-32 flex flex-row items-center h-[500px] mt-14 w-[1125px] bg-tertiary rounded-[200px] gap-10">
         <div className="w-1/2">
           <h4 className="text-white font-medium text-[36px] font-generalSans">
             01
@@ -66,7 +66,7 @@ const Projects = ({ isDarkMode, setIsDarkMode }) => {
           />
         </div>
       </div>
-      <div className="px-28 flex flex-row items-center h-[500px] my-14 w-[1125px] bg-tertiary rounded-[200px] gap-16">
+      <div className="px-28 flex flex-row items-center h-[500px] mt-14 w-[1125px] bg-tertiary rounded-[200px] gap-16">
         <div className="w-1/2">
           <img
             src={Project2}

@@ -7,7 +7,7 @@ const Navbar = ({ isDarkMode }) => {
   return (
     <header
       className={`sm:px-10 px-8 w-full flex items-center justify-between z-10 py-5 fixed duration ${
-        isDarkMode ? "bg-secondary" : "bg-white "
+        isDarkMode ? "bg-primary" : "bg-white "
       }`}
     >
       <a href="#hero" aria-label="logo">
