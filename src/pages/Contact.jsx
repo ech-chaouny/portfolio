@@ -58,7 +58,7 @@ const Contact = ({ isDarkMode }) => {
                 </span>
               </a>
             </div>
-            <ContactImage className="w-52" style={{ marginTop: "-3rem" }} />
+            {/* <ContactImage className="w-52" style={{ marginTop: "-3rem" }} /> */}
           </div>
         </div>
         {/* <div className="w-[555px] h-[580px] p-14 bg-tertiary rounded-[50px]">
