@@ -1,5 +1,5 @@
 import React from "react";
-import { Contactsmile, Github, Instagram, Linkedin } from "../assets";
+import { ContactImage, Github, Instagram, Linkedin } from "../assets";
 
 const Contact = ({ isDarkMode }) => {
   return (
@@ -22,7 +22,7 @@ const Contact = ({ isDarkMode }) => {
           <h4 className="mt-8 text-[25px] font-semibold text-tertiary tracking-tight">
             Find me on social networks
           </h4>
-          <div className="flex justify-between gap-2">
+          <div className="flex gap-20">
             <div>
               <a
                 href=""
@@ -58,7 +58,7 @@ const Contact = ({ isDarkMode }) => {
                 </span>
               </a>
             </div>
-            {/* <Contactsmile className="w-52" style={{ marginTop: "-3rem" }} /> */}
+            <ContactImage className="w-52" style={{ marginTop: "-3rem" }} />
           </div>
         </div>
         {/* <div className="w-[555px] h-[580px] p-14 bg-tertiary rounded-[50px]">

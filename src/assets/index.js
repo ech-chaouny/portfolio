@@ -19,7 +19,6 @@ import BackTop from "./icons/top.svg?react";
 import Ismael from "./smael.svg?react";
 import IsmaelSmile from "./smaelsmile.svg?react";
 import ContactImage from "./contact.svg?react";
-import Contactsmile from "./contactsmile.svg?react";
 
 export {
   Blacklogo,
@@ -43,5 +42,4 @@ export {
   IsmaelSmile,
   Ismael,
   ContactImage,
-  Contactsmile,
 };
