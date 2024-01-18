@@ -1,35 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
-import { technologies } from "../constants";
-import Magent from "../components/Magent";
-import { MyPhoto } from "../assets";
-import { motion, useTransform, useScroll } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 
-const About = ({ setIsDarkMode, isDarkMode }) => {
+import { MyPhoto } from "../assets";
+import { motion, useScroll } from "framer-motion";
+import Technologies from "../components/Technologies";
+
+const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
   const container = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start end", "end start"],
   });
+
   useEffect(() => {
-    scrollYProgress.onChange((latest) => {
+    scrollYProgress.on("change", (latest) => {
       if (latest >= 0.25 && latest <= 0.7) {
         setIsDarkMode(true);
+        setBackTop(true);
+      } else if (latest <= 0.25) {
+        setIsDarkMode(false);
+        setBackTop(false);
       } else {
         setIsDarkMode(false);
       }
     });
-    console.log(isDarkMode);
   });
   return (
-    <section id="about" className="w-full h-full flex flex-col justify-center">
-      <motion.div
-        className="paddingX py-28 h-auto xl:h-screen flex flex-col justify-center"
+    <section
+      id="about"
+      className="paddingX flex flex-col justify-center max-w-7xl mx-auto"
+    >
+      <div
         ref={container}
+        className="py-28 h-auto xl:h-screen flex flex-col justify-center"
       >
-        <h1 className="text-2xl sm:text-3xl text-black-200 font-semibold font-generalSans">
+        <h4 className="text-2xl sm:text-3xl text-black-200 font-semibold font-generalSans">
           WHO I'M
-        </h1>
+        </h4>
         <p
           className={`pt-8 text-3xl sm:text-[40px] xl:text-[4rem] ${
             isDarkMode ? "text-white-300" : "text-tertiary"
@@ -39,23 +46,31 @@ const About = ({ setIsDarkMode, isDarkMode }) => {
           align with the distinctive concepts and color palettes embedded within
           your creative vision.
         </p>
-      </motion.div>
+      </div>
+      <Technologies isDarkMode={isDarkMode} />
+      <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
+        Introduction
+      </p>
       <h1
-        className={`text-5xl font-semibold font-generalSans ${
+        className={`text-4xl font-bold font-generalSans ${
           isDarkMode ? "text-white-300" : "text-tertiary"
-        } text-center sl:text-8xl`}
+        } sl:md:text-[60px] uppercase`}
       >
-        ABOUT ME
+        About Me.
       </h1>
-      <div className="paddingX paddingY w-full flex flex-col sl:flex-row justify-between items-center gap-10">
-        <div className="w-full h-full">
+      <div className="paddingY flex flex-col sl:flex-row justify-center items-center gap-10">
+        <div className="w-full sl:w-[83%] h-full">
           <img src={MyPhoto} alt="profile" className="profile" />
         </div>
-        <div className="w-full h-full text-center md:text-start">
-          <h3 className="xl:text-[30px] sm:text-[27px] xs:text-[22px] font-bold font-generalSans text-tertiary">
+        <div className="w-full h-full">
+          <h3 className="sm:text-[28px] xs:text-[22px] font-bold font-generalSans text-tertiary">
             A Junior Front-end Developer based in Casablanca, Morroco 📍
           </h3>
-          <p className="md:mt-8 mt-5 md:text-[22px] font-normal text-black-300">
+          <p
+            className={`md:mt-8 mt-5 md:text-[22px] font-normal text-black-300 ${
+              isDarkMode ? "text-white-300" : "text-tertiary"
+            } `}
+          >
             As a Junior Front-End Developer, I focus on developing my skills by
             mastering HTML, CSS, JavaScript, ReactJs, NextJs, Tailwind, SCSS. I
             specialize in designing and maintaining responsive websites that
@@ -64,33 +79,10 @@ const About = ({ setIsDarkMode, isDarkMode }) => {
             optimized code. I am well-versed in the latest development tools and
             techniques. Additionally, I am a team player who thrives in
             collaborating with cross-functional teams to produce outstanding web
-            applications.
+            applications. 💻
           </p>
         </div>
       </div>
-      {/* <div className="paddingX flex flex-col justify-center items-center">
-        <h1 className="text-2xl sm:text-3xl text-black-200 font-semibold font-generalSans">
-          TECHNOLOGIES
-        </h1>
-        <p className="text-2xl mt-8 max-w-[800px] text-center font-normal text-tertiary">
-          I always focus on the technologies that help me reach a high level in
-          my career as a front-end developer, but I am also proficient in php,
-          laravel and also MySQL, but now I am focusing more on these
-          technologies
-        </p>
-        <div className="py-6 flex flex-wrap max-w-[800px] justify-center items-center gap-3">
-          {technologies.map((technology, index) => (
-            <Magent key={index}>
-              <div className="technologies">
-                {<technology.icon className=" w-[28px]" />}
-                <span className="mt-[2px] font-generalSans font-medium text-[18px]">
-                  {technology.name}
-                </span>
-              </div>
-            </Magent>
-          ))}
-        </div>
-      </div> */}
     </section>
   );
 };

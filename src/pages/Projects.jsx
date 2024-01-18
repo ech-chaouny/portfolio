@@ -1,141 +1,110 @@
 import React, { useEffect, useRef } from "react";
-import { Project1, Project2, Project3 } from "../assets";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { projects } from "../constants";
 
 const Projects = ({ isDarkMode, setIsDarkMode }) => {
-  const ProjectRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ProjectRef,
+  const darkModeRef = useRef(null);
+  const videoRef = useRef(null);
+  const { scrollYProgress: darkModeScrollYProgress } = useScroll({
+    target: darkModeRef,
     offset: ["start end", "end start"],
   });
+
+  const { scrollYProgress: projectScrollYProgress } = useScroll({
+    target: videoRef,
+    offset: ["start start", "end end"],
+  });
+
   useEffect(() => {
-    scrollYProgress.onChange((latest) => {
-      if (latest >= 0.1 && latest <= 0.8) {
+    darkModeScrollYProgress.on("change", (latest) => {
+      if (latest >= 0.07 && latest <= 0.9) {
         setIsDarkMode(true);
       } else {
         setIsDarkMode(false);
       }
     });
-    console.log(isDarkMode);
   });
   return (
     <motion.section
       id="projects"
-      ref={ProjectRef}
-      className="paddingX w-full flex flex-col justify-center items-center"
+      ref={darkModeRef}
+      className="pt-24 max-w-7xl mx-auto w-full"
     >
-      <h1
-        className={`text-5xl font-semibold font-generalSans ${
-          isDarkMode ? "text-white-300" : "text-tertiary"
-        } text-center sl:text-8xl`}
-      >
-        PROJECTS
-      </h1>
-      <div className="px-32 flex flex-row items-center h-[500px] mt-14 w-[1125px] bg-tertiary rounded-[200px] gap-10">
-        <div className="w-1/2">
-          <h4 className="text-white font-medium text-[36px] font-generalSans">
-            01
-          </h4>
-          <h1 className="text-white-100 font-semibold text-[48px] font-generalSans">
-            Project Name
-          </h1>
-          <p className="text-white-100 font-medium text-[20px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
-          </p>
-          <div className="flex mt-3 gap-3">
-            <div className="rounded-3xl px-5 py-2 bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                React Js
-              </span>
-            </div>
-            <div className="px-5 py-2 rounded-3xl bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                Taiwlind Css
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="w-1/2">
-          <img
-            src={Project1}
-            alt="Project1"
-            className="w-auto h-auto rounded-[80px]"
-          />
-        </div>
+      <div className="paddingX">
+        <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
+          My work
+        </p>
+        <h1
+          className={`text-4xl font-bold font-generalSans ${
+            isDarkMode ? "text-white-300" : "text-tertiary"
+          } sl:md:text-[60px] uppercase`}
+        >
+          Projects.
+        </h1>
+        <p className="md:mt-8 mt-5 md:text-[22px] font-normal text-white-300 max-w-3xl">
+          Following projects showcases my skills and experience through
+          real-world examples of my work. Each project is briefly described with
+          links to code repositories and live demos in it. It reflects my
+          ability to solve complex problems, work with different technologies,
+          and manage projects effectively. 🧩
+        </p>
       </div>
-      <div className="px-28 flex flex-row items-center h-[500px] mt-14 w-[1125px] bg-tertiary rounded-[200px] gap-16">
-        <div className="w-1/2">
-          <img
-            src={Project2}
-            alt="Project2"
-            className="w-auto h-auto rounded-[80px]"
-          />
+      <div className="md:my-16 my-10 flex flex-row justify-center gap-10">
+        <div className="w-[70%] h-full">
+          {projects.map((project, index) => {
+            return <ProjctesVideos key={index} {...project} />;
+          })}
         </div>
-        <div className="w-1/2">
-          <h4 className="text-white font-medium text-[36px] font-generalSans">
-            02
-          </h4>
-          <h1 className="text-white-100 font-semibold text-[48px] font-generalSans">
-            Project Name
-          </h1>
-          <p className="text-white-100 font-medium text-[20px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
-          </p>
-          <div className="flex mt-3 gap-3">
-            <div className="rounded-3xl px-5 py-2 bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                React Js
-              </span>
-            </div>
-            <div className="px-5 py-2 rounded-3xl bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                Taiwlind Css
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="px-32 flex flex-row items-center h-[500px] my-14 w-[1125px] bg-tertiary rounded-[200px] gap-10">
-        <div className="w-1/2">
-          <h4 className="text-white font-medium text-[36px] font-generalSans">
-            03
-          </h4>
-          <h1 className="text-white-100 font-semibold text-[48px] font-generalSans">
-            Project Name
-          </h1>
-          <p className="text-white-100 font-medium text-[20px]">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam.
-          </p>
-          <div className="flex mt-3 gap-3">
-            <div className="rounded-3xl px-5 py-2 bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                React Js
-              </span>
-            </div>
-            <div className="px-5 py-2 rounded-3xl bg-white-200 flex justify-center items-center">
-              <span className="font-medium text-[16px] text-black-300">
-                Taiwlind Css
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="w-1/2">
-          <img
-            src={Project3}
-            alt="Project3"
-            className="w-auto object-contain h-auto rounded-[80px]"
-          />
+        <div className="w-[30%] h-full">
+          {projects.map((project, index) => {
+            return <ProjctesTexts key={index} {...project} />;
+          })}
         </div>
       </div>
     </motion.section>
   );
 };
 
+const ProjctesVideos = ({ video, title }) => {
+  return (
+    <div className="sticky top-20">
+      <motion.div className="w-full">
+        <video
+          src={video}
+          alt={title}
+          autoPlay
+          loop
+          muted
+          type="video/mp4"
+          className="w-auto h-auto rounded-[20px] relative"
+        />
+      </motion.div>
+    </div>
+  );
+};
+const ProjctesTexts = ({ num, title, body, tags }) => {
+  return (
+    <div className="h-[88.5vh] flex flex-col justify-center">
+      <h4 className="text-white-100 font-medium text-[40px] font-generalSans">
+        {num}
+      </h4>
+      <h1 className="text-white-100 font-semibold text-[35px] font-generalSans">
+        {title}
+      </h1>
+      <p className="font-normal text-white-100 text-[18px]">{body}</p>
+      <div className="flex mt-3 gap-3">
+        {tags.map((tag, index) => (
+          <div
+            key={index}
+            className="rounded-3xl px-3 py-1 bg-white-200 flex justify-center items-center"
+          >
+            <span className="font-medium text-[16px] text-black-300">
+              {tag.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default Projects;

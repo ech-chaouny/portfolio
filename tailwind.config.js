@@ -21,7 +21,7 @@ export default {
         LeagueSpartan: ["League Spartan", "sans-serif"],
       },
       screens: {
-        xs: "470px",
+        xs: "500px",
         sl: "850px",
       },
     },

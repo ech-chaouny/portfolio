@@ -3,63 +3,58 @@ import { ContactImage, Github, Instagram, Linkedin } from "../assets";
 
 const Contact = ({ isDarkMode }) => {
   return (
-    <>
+    <section id="contact" className="padding max-w-7xl mx-auto">
+      <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
+        GET IN TOUCH
+      </p>
       <h1
-        className={`mt-14 text-5xl font-semibold font-generalSans ${
+        className={`mb-14 text-4xl font-bold font-generalSans ${
           isDarkMode ? "text-white-300" : "text-tertiary"
-        } text-center sl:text-8xl`}
+        } sl:md:text-[60px] uppercase`}
       >
-        CONTACT
+        Contact.
       </h1>
-      <div className="paddingX paddingY flex md:flex-row flex-col items-center justify-center gap-16">
-        <div className="w-[555px] border-2 border-white-200 duration-300 hover:border-tertiary p-12 rounded-[40px]">
-          <h2 className="text-[42px] font-semibold text-tertiary tracking-tight leading-tight">
-            I'm always happy to work with you
-          </h2>
-          <h4 className="mt-8 text-[30px] font-medium text-tertiary tracking-tight leading-10">
-            don't be shy! We can bring any idea you have in mind to life
-          </h4>
-          <h4 className="mt-8 text-[25px] font-semibold text-tertiary tracking-tight">
+      <div className="flex sl:flex-row flex-col justify-center sl:gap-20 gap-14">
+        <div className="w-auto h-full flex justify-center">
+          <ContactImage className="sl:size-[26rem] size-[16rem] sl:p-8" />
+          {/* <h4 className="mt-8 text-[25px] font-semibold text-tertiary tracking-tight">
             Find me on social networks
-          </h4>
-          <div className="flex gap-20">
-            <div>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-3 items-center mt-3 mb-3 w-40"
-              >
-                <Linkedin className="size-[28px]" />
-                <span className="text-tertiary font-medium text-[20px] mt-1">
-                  LinkedIn
-                </span>
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-3 items-center mb-3 w-40"
-              >
-                <Github className="size-[28px]" />
-                <span className="text-tertiary font-medium text-[20px] mt-1">
-                  Github
-                </span>
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex gap-3 items-center mb-3 w-40"
-              >
-                <Instagram className="size-[28px]" />
-                <span className="text-tertiary font-medium text-[20px] mt-1">
-                  Instagram
-                </span>
-              </a>
-            </div>
-            {/* <ContactImage className="w-52" style={{ marginTop: "-3rem" }} /> */}
-          </div>
+          </h4> */}
+          {/* <div>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-3 items-center mt-3 mb-3 w-40"
+            >
+              <Linkedin className="size-[28px]" />
+              <span className="text-tertiary font-medium text-[20px] mt-1">
+                LinkedIn
+              </span>
+            </a>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-3 items-center mb-3 w-40"
+            >
+              <Github className="size-[28px]" />
+              <span className="text-tertiary font-medium text-[20px] mt-1">
+                Github
+              </span>
+            </a>
+            <a
+              href=""
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-3 items-center mb-3 w-40"
+            >
+              <Instagram className="size-[28px]" />
+              <span className="text-tertiary font-medium text-[20px] mt-1">
+                Instagram
+              </span>
+            </a>
+          </div> */}
         </div>
         {/* <div className="w-[555px] h-[580px] p-14 bg-tertiary rounded-[50px]">
           <h2 className="text-[42px] font-semibold text-white-200 tracking-tight leading-tight">
@@ -105,31 +100,33 @@ const Contact = ({ isDarkMode }) => {
             </span>
           </a>
         </div> */}
-        <div className="w-[555px] h-[580px] p-12 border-black bg-white rounded-[40px]">
-          <h2 className="text-[40px] font-semibold text-tertiary tracking-tight leading-10">
+        <div className="sl:w-1/2 w-full">
+          <h2 className="sl:text-[36px] text-[30px] font-semibold text-tertiary tracking-tight leading-8">
             I'm just a few keystrokes away.
           </h2>
+          <p className="mt-4 text-[20px] font-normal text-tertiary tracking-tight">
+            don't be shy! We can bring any idea you have in mind to life
+          </p>
           <form action="" className="mt-5">
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="What's your name?*"
               className="h-12 px-6 outline-none placeholder:text-white-300
-              text-white-100 bg-black-200 w-full border-2
-              border-tertiary rounded-3xl text-[18px] font-normal"
+              text-black-300 bg-white-100 w-full border-2
+              border-tertiary rounded-3xl text-[18px]"
             />
             <input
               type="email"
-              placeholder="Your Email"
-              className="mt-5 h-12 px-6 outline-none placeholder:text-white-300
-              text-white-100 bg-black-200 w-full border-2
-              border-tertiary rounded-3xl text-[18px] font-normal"
+              placeholder="What's your email?*"
+              className="mt-5 h-12 px-6 bg-white-100 outline-none placeholder:text-white-300
+              text-black-300 w-full border-2
+              border-tertiary rounded-3xl text-[18px]"
             />
             <textarea
               rows="5"
               placeholder="What do you want to say?"
-              className="mt-5 pt-6 px-6 outline-none placeholder:text-white-300
-              text-white-100 bg-black-200 w-full border-2
-              border-tertiary rounded-[40px] text-[18px]"
+              className="mt-5 pt-6 px-6 bg-white-100 outline-none placeholder:text-white-300
+              text-black-300 w-full border-2 border-tertiary rounded-[30px] text-[18px]"
             />
             <button
               type="submit"
@@ -140,7 +137,7 @@ const Contact = ({ isDarkMode }) => {
           </form>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

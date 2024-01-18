@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const Cursor = ({ stickyElement }) => {
+const Cursor = ({ stickyElement, socialElement }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const cursorSize = isHovered ? 200 : 20;
+  const [socialHovred, setSocialHovred] = useState(false);
+  const cursorSize = isHovered ? 200 : socialHovred ? 40 : 20;
 
   const mouse = {
     x: useMotionValue(0),
@@ -26,17 +27,27 @@ const Cursor = ({ stickyElement }) => {
   const mouseLeave = (e) => {
     setIsHovered(false);
   };
+  const mouseSOver = (e) => {
+    setSocialHovred(true);
+  };
+  const mouseSLeave = (e) => {
+    setSocialHovred(false);
+  };
   useEffect(() => {
     document.body.style.cursor = isHovered ? "none" : "auto";
 
     window.addEventListener("mousemove", mouseMove);
     stickyElement.current.addEventListener("mouseover", mouseOver);
     stickyElement.current.addEventListener("mouseleave", mouseLeave);
+    socialElement.current.addEventListener("mouseover", mouseSOver);
+    socialElement.current.addEventListener("mouseleave", mouseSLeave);
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
       stickyElement.current.removeEventListener("mouseover", mouseOver);
       stickyElement.current.removeEventListener("mouseleave", mouseLeave);
+      socialElement.current.removeEventListener("mouseover", mouseSOver);
+      socialElement.current.removeEventListener("mouseleave", mouseSLeave);
     };
   });
   return (
@@ -48,10 +59,14 @@ const Cursor = ({ stickyElement }) => {
       animate={{
         width: cursorSize,
         height: cursorSize,
-        mixBlendMode: isHovered ? "difference" : "",
-        backgroundColor: isHovered ? "white" : "",
+        mixBlendMode: isHovered
+          ? "difference"
+          : socialHovred
+          ? "difference"
+          : "",
+        backgroundColor: isHovered ? "white" : socialHovred ? "white" : "",
       }}
-      className="cursor"
+      className="cursor lg:flex hidden"
     />
   );
 };

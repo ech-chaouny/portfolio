@@ -7,10 +7,14 @@ import Lenis from "@studio-freight/lenis";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
+import Social from "./components/Social";
 
 const App = () => {
   const stickyElement = useRef(null);
+  const socialElement = useRef(null);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [backTop, setBackTop] = useState(false);
+
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time) {
@@ -21,19 +25,26 @@ const App = () => {
   });
 
   return (
-    <section className={`${isDarkMode ? "bg-primary" : "bg-white "} duration`}>
+    <section
+      className={`${isDarkMode ? "bg-secondary" : "bg-white "} duration`}
+    >
       <Navbar isDarkMode={isDarkMode} />
       <section
         id="hero"
-        className="h-screen w-full flex justify-center items-center"
+        className="h-screen w-full paddingX flex justify-center items-center"
       >
         <Hero ref={stickyElement} isDarkMode={isDarkMode} />
       </section>
-      <About setIsDarkMode={setIsDarkMode} isDarkMode={isDarkMode} />
+      <About
+        setBackTop={setBackTop}
+        setIsDarkMode={setIsDarkMode}
+        isDarkMode={isDarkMode}
+      />
       <Projects isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <Contact isDarkMode={isDarkMode} />
-      <Footer />
-      <Cursor stickyElement={stickyElement} />
+      <Footer backTop={backTop} />
+      <Cursor stickyElement={stickyElement} socialElement={socialElement} />
+      <Social ref={socialElement} isDarkMode={isDarkMode} />
     </section>
   );
 };

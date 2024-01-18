@@ -1,5 +1,9 @@
 import Blacklogo from "./blacklogo.svg?react";
 import Whitelogo from "./whitelogo.svg?react";
+import Menu from "./icons/menu.svg?react";
+import CloseWhite from "./icons/close_white.svg?react";
+import MenuWhite from "./icons/menu_white.svg?react";
+import Close from "./icons/close.svg?react";
 import MyPhoto from "./me.jpg";
 import Html from "./icons/html.svg?react";
 import Css from "./icons/css.svg?react";
@@ -12,9 +16,11 @@ import Sass from "./icons/sass.svg?react";
 import Linkedin from "./icons/linkedin.svg?react";
 import Github from "./icons/github.svg?react";
 import Instagram from "./icons/instagram.svg?react";
-import Project1 from "./carrent.png";
-import Project2 from "./jobit.png";
-import Project3 from "./tripguide.png";
+import LinkedinW from "./icons/linkedin_white.svg?react";
+import GithubW from "./icons/github_white.svg?react";
+import InstagramW from "./icons/instagram_white.svg?react";
+import GTA from "./projects/gta6.mp4";
+import Agency from "./projects/agency.mp4";
 import BackTop from "./icons/top.svg?react";
 import Ismael from "./smael.svg?react";
 import IsmaelSmile from "./smaelsmile.svg?react";
@@ -22,6 +28,11 @@ import ContactImage from "./contact.svg?react";
 
 export {
   Blacklogo,
+  Whitelogo,
+  Menu,
+  Close,
+  MenuWhite,
+  CloseWhite,
   Javascript,
   Html,
   Css,
@@ -31,13 +42,14 @@ export {
   Tailwindcss,
   Sass,
   MyPhoto,
-  Whitelogo,
-  Project1,
-  Project2,
-  Project3,
+  GTA,
+  Agency,
   Linkedin,
   Github,
   Instagram,
+  LinkedinW,
+  GithubW,
+  InstagramW,
   BackTop,
   IsmaelSmile,
   Ismael,
