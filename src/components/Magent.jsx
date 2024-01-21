@@ -7,11 +7,11 @@ const Magent = ({ children }) => {
   useEffect(() => {
     const xTo = gsap.quickTo(ref.current, "x", {
       duration: 1,
-      ease: "elastic.out(1, 0.3)",
+      ease: "elastic.out(1, 0.7)",
     });
     const yTo = gsap.quickTo(ref.current, "y", {
       duration: 1,
-      ease: "elastic.out(1, 0.3)",
+      ease: "elastic.out(1, 0.7)",
     });
 
     const mouseMove = (e) => {

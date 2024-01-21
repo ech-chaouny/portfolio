@@ -27,15 +27,15 @@ const Footer = ({ backTop }) => {
           </a>
         </div>
       </div>
-      <a
-        href="#hero"
-        className={`fixed right-0 pb-5 pr-5 bottom-0 ${
+      <div
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={`fixed right-0 pb-5 pr-5 bottom-0 cursor-pointer ${
           backTop ? "flex" : "hidden"
         }`}
       >
         {/* <span>Back to top</span> */}
         <BackTop className="lg:w-10 w-8 h-auto" />
-      </a>
+      </div>
     </>
   );
 };

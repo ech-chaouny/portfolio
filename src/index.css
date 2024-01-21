@@ -9,7 +9,6 @@ body {
 }
 
 
-
 @layer utilities {
   .paddingX {
     @apply sm:px-16 px-6;
@@ -21,10 +20,6 @@ body {
 
   .padding {
     @apply sm:px-16 px-6 sm:py-16 py-10
-  }
-
-  .technologies {
-    @apply py-4 flex gap-2 px-6 bg-tertiary saturate-0 hover:saturate-100 rounded-full text-white-100 hover:text-tertiary hover:cursor-pointer hover:bg-white-100 hover:border-black border duration-500
   }
 
   .profile {
@@ -43,7 +38,7 @@ body {
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
-  z-index: 10;
+  z-index: 99;
 }
 
 /* nav a:after {

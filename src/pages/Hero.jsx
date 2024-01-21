@@ -34,18 +34,15 @@ const Hero = forwardRef(function index(props, ref) {
           A passionate Front-end Developer devoted to the art of coding. 👋
         </p>
       </div>
-      <motion.div
-        style={{ y: md }}
-        className="absolute right-0 bottom-0 mr-12 mb-16"
-      >
+      <div className="absolute sm:right-0 center-0 bottom-0 mb-8 sm:mr-12 sm:mb-16">
         <a
           href="#about"
-          className="flex flex-col justify-center items-center gap-3"
+          className="flex flex-col justify-center items-center gap-2"
         >
           <div
-            className="w-[30px] h-[57px]
-          rounded-3xl border-[3px] border-secondary
-          flex justify-center items-start p-2"
+            className="sm:w-[25px] sm:h-[47px] w-[16px] h-[30px]
+          sm:rounded-3xl rounded-xl sm:border-[3px] border-[2px] border-secondary
+          flex justify-center items-start sm:p-1.5"
           >
             <motion.div
               animate={{ y: [0, 24, 0] }}
@@ -54,14 +51,11 @@ const Hero = forwardRef(function index(props, ref) {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="w-2 h-2 rounded-full bg-secondary mb-1"
+              className="sm:w-1.5 sm:h-1.5 w-1 h-1 rounded-full bg-secondary mb-1"
             />
           </div>
-          <span className="font-generalSans text-secondary font-semibold">
-            Scroll down
-          </span>
         </a>
-      </motion.div>
+      </div>
     </>
   );
 });

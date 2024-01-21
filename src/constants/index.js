@@ -13,18 +13,6 @@ import {
 
 export const technologies = [
   {
-    icon: Html,
-    name: "HTML",
-    type: "Frontend",
-  },
-
-  {
-    icon: Css,
-    name: "CSS",
-    type: "Frontend",
-  },
-
-  {
     icon: Javascript,
     name: "JavaScript",
     type: "Frontend",
@@ -33,11 +21,6 @@ export const technologies = [
   {
     icon: TypeScript,
     name: "TypeScript",
-    type: "Frontend",
-  },
-  {
-    icon: Sass,
-    name: "Sass",
     type: "Frontend",
   },
   {
@@ -51,21 +34,22 @@ export const technologies = [
     name: "Next JS",
     type: "Frontend",
   },
-  //   {
-  //     icon: motion,
-  //     name: "Motion",
-  //     type: "Animation",
-  //   },
 
   {
     icon: Tailwindcss,
     name: "Tailwind CSS",
     type: "Frontend",
   },
+  {
+    icon: Sass,
+    name: "Sass",
+    type: "Frontend",
+  },
 ];
 
 export const projects = [
   {
+    url: "https://www.github/echchaouny.com",
     num: "1",
     video: GTA,
     title: "GTA 6 Website",
@@ -87,6 +71,7 @@ export const projects = [
   },
 
   {
+    url: "https://www.github.com",
     num: "2",
     video: Agency,
     title: "Landing page agency",
@@ -108,6 +93,7 @@ export const projects = [
   },
 
   {
+    url: "www.facebook.com",
     num: "3",
     video: GTA,
     title: "GTA 6 Website",
@@ -127,4 +113,11 @@ export const projects = [
       },
     ],
   },
+];
+
+export const navLinks = [
+  { title: "Home", link: "#hero" },
+  { title: "About", link: "#about" },
+  { title: "Projects", link: "#projects" },
+  { title: "Contact", link: "#contact" },
 ];

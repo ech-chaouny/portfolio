@@ -1,11 +1,22 @@
 import React, { useEffect, useRef } from "react";
 
 import { MyPhoto } from "../assets";
-import { motion, useScroll } from "framer-motion";
+import { motion, useScroll, useInView } from "framer-motion";
 import Technologies from "../components/Technologies";
+import { slideUpAbout } from "../utils/motion";
 
 const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
+  const phrase = [
+    "I'm here to craft user interfaces and",
+    "web applications that seamlessly",
+    " align with the distinctive concepts",
+    "and color palettes embedded within",
+    "your creative vision.",
+  ];
+
   const container = useRef(null);
+  const aboutPhrase = useRef(null);
+  const isInView = useInView(aboutPhrase);
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -24,7 +35,7 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
         setIsDarkMode(false);
       }
     });
-  });
+  }, []);
   return (
     <section
       id="about"
@@ -38,13 +49,27 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
           WHO I'M
         </h4>
         <p
+          ref={aboutPhrase}
           className={`pt-8 text-3xl sm:text-[40px] xl:text-[4rem] ${
             isDarkMode ? "text-white-300" : "text-tertiary"
           } font-semibold font-generalSans duration leading-10 sm:leading-tight`}
         >
-          I'm here to craft user interfaces and web applications that seamlessly
-          align with the distinctive concepts and color palettes embedded within
-          your creative vision.
+          {phrase.map((word, index) => {
+            return (
+              <span
+                key={index}
+                className="relative overflow-hidden inline-flex"
+              >
+                <motion.span
+                  variants={slideUpAbout}
+                  custom={index}
+                  animate={isInView ? "open" : "closed"}
+                >
+                  {word}
+                </motion.span>
+              </span>
+            );
+          })}
         </p>
       </div>
       <Technologies isDarkMode={isDarkMode} />

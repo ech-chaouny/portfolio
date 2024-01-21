@@ -1,9 +1,74 @@
-import React from "react";
-import { ContactImage, Github, Instagram, Linkedin } from "../assets";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+
+import { ContactImage } from "../assets";
+import useAlert from "../hooks/useAlert";
+import Alert from "../components/Alert";
 
 const Contact = ({ isDarkMode }) => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const formRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { alert, showAlert, hideAlert } = useAlert();
+
+  const handleChange = (event) => {
+    setForm({ ...form, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (form.name !== "" && form.email !== "" && form.message !== "") {
+      setIsLoading(true);
+      emailjs
+        .send(
+          "service_7paqlg3",
+          "template_iltvgni",
+          {
+            from_name: form.name,
+            to_name: "Ismael",
+            from_email: form.email,
+            to_email: "chaouniismail4@gmail.com",
+            message: form.message,
+          },
+          "0q_Iq6Z0DvP-5R7zg"
+        )
+        .then(
+          () => {
+            setIsLoading(false);
+            setForm({ name: "", email: "", message: "" });
+            showAlert({
+              show: true,
+              text: "Thank you. I will reply you as soon as possible.",
+              type: "success",
+            });
+            setTimeout(() => {
+              hideAlert();
+            }, [3000]);
+          },
+          (error) => {
+            setIsLoading(false);
+            console.log(error);
+            showAlert({
+              show: true,
+              text: "something went wrong. Please try again",
+              type: "danger",
+            });
+          }
+        );
+    } else {
+      showAlert({
+        show: true,
+        text: "Don't leave anything empty, please?",
+        type: "danger",
+      });
+      setTimeout(() => {
+        hideAlert();
+      }, [3000]);
+    }
+  };
   return (
-    <section id="contact" className="padding max-w-7xl mx-auto">
+    <section id="contact" className="paddingX pb-16 max-w-7xl mx-auto">
+      {alert.show && <Alert {...alert} />}
       <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
         GET IN TOUCH
       </p>
@@ -107,32 +172,42 @@ const Contact = ({ isDarkMode }) => {
           <p className="mt-4 text-[20px] font-normal text-tertiary tracking-tight">
             don't be shy! We can bring any idea you have in mind to life
           </p>
-          <form action="" className="mt-5">
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-5">
             <input
               type="text"
+              name="name"
+              value={form.name}
               placeholder="What's your name?*"
               className="h-12 px-6 outline-none placeholder:text-white-300
               text-black-300 bg-white-100 w-full border-2
               border-tertiary rounded-3xl text-[18px]"
+              onChange={handleChange}
             />
             <input
               type="email"
+              name="email"
+              value={form.email}
               placeholder="What's your email?*"
               className="mt-5 h-12 px-6 bg-white-100 outline-none placeholder:text-white-300
               text-black-300 w-full border-2
               border-tertiary rounded-3xl text-[18px]"
+              onChange={handleChange}
             />
             <textarea
               rows="5"
+              name="message"
+              value={form.message}
               placeholder="What do you want to say?"
               className="mt-5 pt-6 px-6 bg-white-100 outline-none placeholder:text-white-300
               text-black-300 w-full border-2 border-tertiary rounded-[30px] text-[18px]"
+              onChange={handleChange}
             />
             <button
               type="submit"
+              disabled={isLoading}
               className="mt-3 bg-tertiary hover:bg-black-300 duration-300 py-3 px-6 rounded-3xl font-medium text-white-100"
             >
-              Send Message
+              {!isLoading ? "Send Message" : "Sending..."}
             </button>
           </form>
         </div>

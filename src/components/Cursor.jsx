@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
-const Cursor = ({ stickyElement, socialElement }) => {
+const Cursor = ({ stickyElement, socialElement, projectElement }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [socialHovred, setSocialHovred] = useState(false);
-  const cursorSize = isHovered ? 200 : socialHovred ? 40 : 20;
+  const [isProject, setIsProject] = useState(false);
+  const cursorSize = isHovered ? 200 : socialHovred ? 40 : isProject ? 80 : 20;
 
   const mouse = {
     x: useMotionValue(0),
@@ -33,6 +34,12 @@ const Cursor = ({ stickyElement, socialElement }) => {
   const mouseSLeave = (e) => {
     setSocialHovred(false);
   };
+  const mousePOver = (e) => {
+    setIsProject(true);
+  };
+  const mousePLeave = (e) => {
+    setIsProject(false);
+  };
   useEffect(() => {
     document.body.style.cursor = isHovered ? "none" : "auto";
 
@@ -41,6 +48,8 @@ const Cursor = ({ stickyElement, socialElement }) => {
     stickyElement.current.addEventListener("mouseleave", mouseLeave);
     socialElement.current.addEventListener("mouseover", mouseSOver);
     socialElement.current.addEventListener("mouseleave", mouseSLeave);
+    projectElement.current.addEventListener("mouseover", mousePOver);
+    projectElement.current.addEventListener("mouseleave", mousePLeave);
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
@@ -48,9 +57,30 @@ const Cursor = ({ stickyElement, socialElement }) => {
       stickyElement.current.removeEventListener("mouseleave", mouseLeave);
       socialElement.current.removeEventListener("mouseover", mouseSOver);
       socialElement.current.removeEventListener("mouseleave", mouseSLeave);
+      projectElement.current.removeEventListener("mouseover", mousePOver);
+      projectElement.current.removeEventListener("mouseleave", mousePLeave);
     };
   });
-  return (
+  return isProject ? (
+    <motion.div
+      style={{
+        left: smoothMouse.x,
+        top: smoothMouse.y,
+        opacity: "80%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      animate={{
+        width: cursorSize,
+        height: cursorSize,
+        backgroundColor: isProject ? "white" : "",
+      }}
+      className="cursor lg:flex hidden"
+    >
+      <span className="text-black text-[18px] font-medium">Click</span>
+    </motion.div>
+  ) : (
     <motion.div
       style={{
         left: smoothMouse.x,
@@ -64,7 +94,13 @@ const Cursor = ({ stickyElement, socialElement }) => {
           : socialHovred
           ? "difference"
           : "",
-        backgroundColor: isHovered ? "white" : socialHovred ? "white" : "",
+        backgroundColor: isHovered
+          ? "white"
+          : socialHovred
+          ? "white"
+          : isProject
+          ? "black"
+          : "",
       }}
       className="cursor lg:flex hidden"
     />

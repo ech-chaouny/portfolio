@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "../constants";
 
-const Projects = ({ isDarkMode, setIsDarkMode }) => {
+const Projects = forwardRef(function index(props, ref) {
   const darkModeRef = useRef(null);
   const videoRef = useRef(null);
   const { scrollYProgress: darkModeScrollYProgress } = useScroll({
@@ -10,33 +12,54 @@ const Projects = ({ isDarkMode, setIsDarkMode }) => {
     offset: ["start end", "end start"],
   });
 
-  const { scrollYProgress: projectScrollYProgress } = useScroll({
-    target: videoRef,
-    offset: ["start start", "end end"],
-  });
+  useEffect(() => {
+    // Ensure ScrollTrigger is activated
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Set initial state using gsap.set and useRef
+    gsap.set(".videos-item", {
+      clipPath: function () {
+        return "inset(0px 0px 0px)";
+      },
+    });
+    const animation = gsap.to(".videos-item:not(:last-child)", {
+      clipPath: function () {
+        return "inset(0px 0px 100%)";
+      },
+      stagger: 0.5,
+      ease: "none",
+    });
+    ScrollTrigger.create({
+      trigger: videoRef.current,
+      start: "top top",
+      end: "bottom bottom",
+      animation: animation,
+      scrub: true,
+    });
+  }, []);
 
   useEffect(() => {
     darkModeScrollYProgress.on("change", (latest) => {
-      if (latest >= 0.07 && latest <= 0.9) {
-        setIsDarkMode(true);
+      if (latest >= 0.07 && latest <= 0.83) {
+        props.setIsDarkMode(true);
       } else {
-        setIsDarkMode(false);
+        props.setIsDarkMode(false);
       }
     });
-  });
+  }, []);
   return (
     <motion.section
       id="projects"
       ref={darkModeRef}
-      className="pt-24 max-w-7xl mx-auto w-full"
+      className="pt-24 paddingX max-w-7xl mx-auto w-full"
     >
-      <div className="paddingX">
+      <div className="">
         <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
           My work
         </p>
         <h1
           className={`text-4xl font-bold font-generalSans ${
-            isDarkMode ? "text-white-300" : "text-tertiary"
+            props.isDarkMode ? "text-white-300" : "text-tertiary"
           } sl:md:text-[60px] uppercase`}
         >
           Projects.
@@ -49,49 +72,108 @@ const Projects = ({ isDarkMode, setIsDarkMode }) => {
           and manage projects effectively. 🧩
         </p>
       </div>
-      <div className="md:my-16 my-10 flex flex-row justify-center gap-10">
-        <div className="w-[70%] h-full">
-          {projects.map((project, index) => {
-            return <ProjctesVideos key={index} {...project} />;
-          })}
+      <div ref={videoRef} className="sl:flex hidden gap-20">
+        <div className="w-[70%] h-auto">
+          <div className="flex felx-col items-center sticky w-full h-[100vh] top-10">
+            <div ref={ref} className="h-[30vw] w-[40vw] relative">
+              {projects.map((project, index) => {
+                return (
+                  <ProjectsVideos index={index} key={index} {...project} />
+                );
+              })}
+            </div>
+          </div>
         </div>
-        <div className="w-[30%] h-full">
+        <div className="relative z-2 w-1/2 h-full">
           {projects.map((project, index) => {
-            return <ProjctesTexts key={index} {...project} />;
+            return <ProjectsTexts key={index} {...project} />;
           })}
         </div>
       </div>
+      <div className="sl:hidden flex flex-col mt-10">
+        {projects.map((project, index) => {
+          return <ProjectsMobile key={index} {...project} />;
+        })}
+      </div>
     </motion.section>
+  );
+});
+
+const ProjectsMobile = ({ video, url, title, num, body, tags }) => {
+  return (
+    <>
+      <div className="w-full h-full my-8">
+        <a href={url} target="_blank" rel="noopener noreferrer">
+          <video
+            src={video}
+            alt={title}
+            autoPlay
+            loop
+            muted
+            type="video/mp4"
+            className="w-full h-full rounded-[20px]"
+          />
+        </a>
+      </div>
+      <div className="mb-14 flex flex-col items-center justify-center text-center">
+        <div className="w-[90%] flex flex-col items-center justify-center">
+          <h4 className="text-white-100 font-medium text-[25px] font-generalSans">
+            {num}
+          </h4>
+          <h1 className="text-white-100 font-semibold text-[25px] font-generalSans">
+            {title}
+          </h1>
+          <p className="font-normal text-white-300 text-[16px]">{body}</p>
+          <div className="flex mt-3 gap-3">
+            {tags.map((tag, index) => (
+              <div
+                key={index}
+                className="rounded-3xl px-3 py-1 bg-white-200 flex justify-center items-center"
+              >
+                <span className="font-medium text-[16px] text-black-300">
+                  {tag.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
-const ProjctesVideos = ({ video, title }) => {
+const ProjectsVideos = ({ index, video, url, title }) => {
   return (
-    <div className="sticky top-20">
-      <motion.div className="w-full">
-        <video
-          src={video}
-          alt={title}
-          autoPlay
-          loop
-          muted
-          type="video/mp4"
-          className="w-auto h-auto rounded-[20px] relative"
-        />
-      </motion.div>
-    </div>
+    <a
+      className={`videos-item absolute rounded-[30px] overflow-hidden`}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ zIndex: 3 - index }}
+    >
+      <video
+        src={video}
+        alt={title}
+        autoPlay
+        loop
+        muted
+        type="video/mp4"
+        className="w-full object-contain"
+      />
+    </a>
   );
 };
-const ProjctesTexts = ({ num, title, body, tags }) => {
+
+const ProjectsTexts = ({ num, title, body, tags }) => {
   return (
-    <div className="h-[88.5vh] flex flex-col justify-center">
-      <h4 className="text-white-100 font-medium text-[40px] font-generalSans">
+    <div className="h-[100vh] flex flex-col justify-center">
+      <h4 className="text-white-100 font-medium xl:text-[30px] font-generalSans">
         {num}
       </h4>
-      <h1 className="text-white-100 font-semibold text-[35px] font-generalSans">
+      <h1 className="text-white-100 font-semibold xl:text-[35px] text-[25px] font-generalSans">
         {title}
       </h1>
-      <p className="font-normal text-white-100 text-[18px]">{body}</p>
+      <p className="font-normal text-white-300 xl:text-[18px]">{body}</p>
       <div className="flex mt-3 gap-3">
         {tags.map((tag, index) => (
           <div
@@ -107,4 +189,5 @@ const ProjctesTexts = ({ num, title, body, tags }) => {
     </div>
   );
 };
+
 export default Projects;

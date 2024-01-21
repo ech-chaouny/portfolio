@@ -1,5 +1,6 @@
 import Blacklogo from "./blacklogo.svg?react";
 import Whitelogo from "./whitelogo.svg?react";
+import Logo from "./icons/logo.svg?react";
 import Menu from "./icons/menu.svg?react";
 import CloseWhite from "./icons/close_white.svg?react";
 import MenuWhite from "./icons/menu_white.svg?react";
@@ -22,13 +23,14 @@ import InstagramW from "./icons/instagram_white.svg?react";
 import GTA from "./projects/gta6.mp4";
 import Agency from "./projects/agency.mp4";
 import BackTop from "./icons/top.svg?react";
-import Ismael from "./smael.svg?react";
+import Tech from "./tech.svg?react";
 import IsmaelSmile from "./smaelsmile.svg?react";
 import ContactImage from "./contact.svg?react";
 
 export {
   Blacklogo,
   Whitelogo,
+  Logo,
   Menu,
   Close,
   MenuWhite,
@@ -52,6 +54,6 @@ export {
   InstagramW,
   BackTop,
   IsmaelSmile,
-  Ismael,
+  Tech,
   ContactImage,
 };

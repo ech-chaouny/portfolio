@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Cursor from "./components/Cursor";
 import Navbar from "./components/Navbar";
 import Hero from "./pages/Hero";
@@ -8,13 +9,15 @@ import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import Social from "./components/Social";
+import Preloader from "./components/Preloader";
 
 const App = () => {
   const stickyElement = useRef(null);
   const socialElement = useRef(null);
+  const projectElement = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [backTop, setBackTop] = useState(false);
-
   useEffect(() => {
     const lenis = new Lenis();
     function raf(time) {
@@ -22,12 +25,18 @@ const App = () => {
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
-  });
-
+    setTimeout(() => {
+      window.scrollTo({ top: 0 });
+      setIsLoading(false);
+    }, 2000);
+  }, []);
   return (
-    <section
-      className={`${isDarkMode ? "bg-secondary" : "bg-white "} duration`}
+    <main
+      className={`main ${isDarkMode ? "bg-secondary" : "bg-white "} duration`}
     >
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader />}
+      </AnimatePresence>
       <Navbar isDarkMode={isDarkMode} />
       <section
         id="hero"
@@ -40,12 +49,20 @@ const App = () => {
         setIsDarkMode={setIsDarkMode}
         isDarkMode={isDarkMode}
       />
-      <Projects isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
+      <Projects
+        ref={projectElement}
+        isDarkMode={isDarkMode}
+        setIsDarkMode={setIsDarkMode}
+      />
       <Contact isDarkMode={isDarkMode} />
       <Footer backTop={backTop} />
-      <Cursor stickyElement={stickyElement} socialElement={socialElement} />
+      <Cursor
+        stickyElement={stickyElement}
+        socialElement={socialElement}
+        projectElement={projectElement}
+      />
       <Social ref={socialElement} isDarkMode={isDarkMode} />
-    </section>
+    </main>
   );
 };
 
