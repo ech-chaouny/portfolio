@@ -19,7 +19,13 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
     "and color palettes embedded within",
     "your creative vision.",
   ];
-
+  // const mobilePhrase = [
+  //   "I'm here to craft user interfaces and",
+  //   "web applications that seamlessly",
+  //   " align with the distinctive concepts",
+  //   "and color palettes embedded within",
+  //   "your creative vision.",
+  // ];
   const container = useRef(null);
   const aboutPhrase = useRef(null);
   const isInView = useInView(aboutPhrase);
