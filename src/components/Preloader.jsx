@@ -29,7 +29,7 @@ const Preloader = () => {
         variants={opacity(1)}
         initial="initial"
         animate="enter"
-        className="font-generalSans text-white text-4xl"
+        className="font-generalSans text-white text-4xl font-semibold"
       >
         {words[index]}
       </motion.p>
