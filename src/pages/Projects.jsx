@@ -132,7 +132,7 @@ const ProjectsMobile = ({ video, url, title, num, body, tags }) => {
       </div>
       <div className="mb-14 flex flex-col items-center justify-center text-center">
         <div className="w-[90%] flex flex-col items-center justify-center">
-          <h4 className="text-white-100 font-medium text-[25px] font-generalSans">
+          <h4 className="text-white-300 font-semibold xl:text-[50px] font-generalSans">
             {num}
           </h4>
           <h1 className="text-white-100 font-semibold text-[25px] font-generalSans">
