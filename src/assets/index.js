@@ -21,7 +21,8 @@ import LinkedinW from "./icons/linkedin_white.svg?react";
 import GithubW from "./icons/github_white.svg?react";
 import InstagramW from "./icons/instagram_white.svg?react";
 import GTA from "./projects/GTA.jpg";
-import Agency from "./projects/Agency.jbg";
+import Agency from "./projects/Agency.jpg";
+import Drone from "./projects/drone.png";
 import BackTop from "./icons/top.svg?react";
 import Tech from "./tech.svg?react";
 import IsmaelSmile from "./smaelsmile.svg?react";
@@ -46,6 +47,7 @@ export {
   MyPhoto,
   GTA,
   Agency,
+  Drone,
   Linkedin,
   Github,
   Instagram,

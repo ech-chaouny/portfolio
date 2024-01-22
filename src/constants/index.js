@@ -9,6 +9,7 @@ import {
   Tailwindcss,
   GTA,
   Agency,
+  Drone,
 } from "../assets";
 
 export const technologies = [
@@ -49,10 +50,10 @@ export const technologies = [
 
 export const projects = [
   {
-    url: "https://www.github/echchaouny.com",
+    url: "https://www.github/echchaouny",
     num: "01",
     video: GTA,
-    title: "GTA 6 Website",
+    title: "GTA VI",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     tags: [
       {
@@ -74,7 +75,7 @@ export const projects = [
     url: "https://www.github.com",
     num: "02",
     video: Agency,
-    title: "Landing page agency",
+    title: "Agency",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     tags: [
       {
@@ -82,21 +83,21 @@ export const projects = [
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "Supabase",
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "Css",
         color: "pink-text-gradient",
       },
     ],
   },
 
   {
-    url: "www.facebook.com",
+    url: "https://www.github.com",
     num: "03",
-    video: GTA,
-    title: "GTA 6 Website",
+    video: Drone,
+    title: "SkySwift",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     tags: [
       {
