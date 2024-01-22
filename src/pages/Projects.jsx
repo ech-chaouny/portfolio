@@ -119,14 +119,10 @@ const ProjectsMobile = ({ video, url, title, num, body, tags }) => {
     <>
       <div className="w-full h-full my-8">
         <a href={url} target="_blank" rel="noopener noreferrer">
-          <video
+          <img
             src={video}
             alt={title}
-            autoPlay
-            loop
-            muted
-            type="video/mp4"
-            className="w-full h-full rounded-[20px]"
+            className="w-full rounded-[20px] object-contain"
           />
         </a>
       </div>
@@ -160,21 +156,13 @@ const ProjectsMobile = ({ video, url, title, num, body, tags }) => {
 const ProjectsVideos = ({ index, video, url, title }) => {
   return (
     <a
-      className={`videos-item absolute rounded-[30px] overflow-hidden`}
+      className={`videos-item absolute rounded-[20px] overflow-hidden`}
       href={url}
       target="_blank"
       rel="noopener noreferrer"
       style={{ zIndex: 3 - index }}
     >
-      <video
-        src={video}
-        alt={title}
-        autoPlay
-        loop
-        muted
-        type="video/mp4"
-        className="w-full object-contain"
-      />
+      <img src={video} alt={title} className="w-full object-contain" />
     </a>
   );
 };
