@@ -20,9 +20,8 @@ import Instagram from "./icons/instagram.svg?react";
 import LinkedinW from "./icons/linkedin_white.svg?react";
 import GithubW from "./icons/github_white.svg?react";
 import InstagramW from "./icons/instagram_white.svg?react";
-import GTA from "./projects/carrent.png";
-import Agency from "./projects/jobit.png";
-import GTA1 from "./projects/tripguide.png";
+import GTA from "./projects/gta6.mp4";
+import Agency from "./projects/agency.mp4";
 import BackTop from "./icons/top.svg?react";
 import Tech from "./tech.svg?react";
 import IsmaelSmile from "./smaelsmile.svg?react";
@@ -46,7 +45,6 @@ export {
   Sass,
   MyPhoto,
   GTA,
-  GTA1,
   Agency,
   Linkedin,
   Github,

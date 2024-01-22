@@ -19,13 +19,7 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
     "and color palettes embedded within",
     "your creative vision.",
   ];
-  // const mobilePhrase = [
-  //   "I'm here to craft user interfaces and",
-  //   "web applications that seamlessly",
-  //   " align with the distinctive concepts",
-  //   "and color palettes embedded within",
-  //   "your creative vision.",
-  // ];
+
   const container = useRef(null);
   const aboutPhrase = useRef(null);
   const isInView = useInView(aboutPhrase);
@@ -61,13 +55,14 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
           WHO I'M
         </h4>
         <p
+          ref={aboutPhrase}
           className={`pt-8 text-3xl sm:text-[40px] xl:text-[4rem] ${
             isDarkMode ? "text-white-300" : "text-tertiary"
           } font-semibold font-generalSans duration leading-10 sm:leading-tight`}
         >
-          I'm here to craft user interfaces and web applications that
-          seamlessly align with the distinctive concepts and color
-          palettes embedded within your creative vision.
+          I'm here to craft user interfaces and web applications that seamlessly
+          align with the distinctive concepts and color palettes embedded within
+          your creative vision.
         </p>
       </div>
       <Technologies isDarkMode={isDarkMode} />
@@ -92,16 +87,16 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
       </motion.div>
 
       <div className="paddingY flex flex-col sl:flex-row justify-center items-center gap-10">
-        <div className="w-full sl:w-[83%] h-full">
-          <img src={MyPhoto} alt="profile" className="profile" />
-        </div>
         <motion.div
-          variants={textVariant()}
-          initial={"hidden"}
-          whileInView={"show"}
+          variants={fadeIn("up", "", 0.2, 0.7)}
+          initial="hidden"
+          whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="w-full h-full"
+          className="w-full sl:w-[83%] h-full"
         >
+          <img src={MyPhoto} alt="profile" className="profile" />
+        </motion.div>
+        <div className="w-full h-full">
           <h3 className="sm:text-[28px] xs:text-[22px] font-bold font-generalSans text-tertiary">
             A Junior Front-end Developer based in Casablanca, Morroco 📍
           </h3>
@@ -120,7 +115,7 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
             collaborating with cross-functional teams to produce outstanding web
             applications. 💻
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
