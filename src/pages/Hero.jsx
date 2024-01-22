@@ -69,9 +69,9 @@ const Hero = forwardRef(function index(props, ref) {
             initial={{ y: 200 }}
             animate={{ y: 0 }}
             transition={{ delay: 2.3, duration: 1 }}
-            className="sm:w-[25px] sm:h-[47px] w-[16px] h-[30px]
-          sm:rounded-3xl rounded-xl sm:border-[3px] border-[2px] border-secondary
-          flex justify-center items-start sm:p-1.5"
+            className="w-[25px] h-[47px]
+          rounded-3xl border-[3px] border-secondary
+          flex justify-center items-start p-1.5"
           >
             <motion.div
               animate={{ y: [0, 24, 0] }}
@@ -80,7 +80,7 @@ const Hero = forwardRef(function index(props, ref) {
                 repeat: Infinity,
                 repeatType: "loop",
               }}
-              className="sm:w-1.5 sm:h-1.5 w-1 h-1 rounded-full bg-secondary mb-1"
+              className="w-1.5 h-1.5 rounded-full bg-secondary mb-1"
             />
           </motion.div>
         </a>
