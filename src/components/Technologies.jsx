@@ -28,7 +28,11 @@ const Technologies = ({ isDarkMode }) => {
   return (
     <div className="sl:h-screen flex sl:flex-row flex-col gap-14">
       <div className="sl:w-1/2 w-full">
-        <h1 className="text-2xl sm:text-3xl text-secondary font-semibold font-generalSans">
+        <h1
+          className={`${
+            isDarkMode ? "text-white-200" : "text-secondary"
+          } text-2xl sm:text-3xl font-semibold font-generalSans duration-500`}
+        >
           TECHNOLOGIES
         </h1>
         <p
@@ -49,7 +53,7 @@ const Technologies = ({ isDarkMode }) => {
       <div className="sl:w-1/2 w-full sl:px-14 sl:pb-0 pb-20 grid grid-cols-2 justify-center gap-6 h-[75vh]">
         {technologies.map((technology, index) => (
           <motion.div
-            variants={fadeIn("left", 0.2, 0)}
+            variants={fadeIn("right", 0.2, 0)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
