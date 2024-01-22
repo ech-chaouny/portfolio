@@ -37,7 +37,7 @@ const App = () => {
       } duration`}
     >
       <AnimatePresence mode="wait">
-        {isLoading && <Preloader />}
+        {/* {isLoading && <Preloader />} */}
       </AnimatePresence>
       <Navbar isDarkMode={isDarkMode} />
       <section
