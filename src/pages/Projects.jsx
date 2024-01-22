@@ -166,7 +166,15 @@ const ProjectsVideos = ({ index, video, url, title }) => {
       rel="noopener noreferrer"
       style={{ zIndex: 3 - index }}
     >
-      <img src={video} alt={title} className="w-full object-contain" />
+      <video
+        src={video}
+        alt={title}
+        autoPlay
+        loop
+        muted
+        type="video/mp4"
+        className="w-full object-contain"
+      />
     </a>
   );
 };
