@@ -25,7 +25,7 @@ const Hero = forwardRef(function index(props, ref) {
       <h1
         className={`font-black ${
           props.isDarkMode ? "text-white-300" : "text-secondary"
-        } duration font-generalSans xs:text-[60px] text-[32px] mt-6 tracking-tight leading-tight`}
+        } duration font-generalSans sm:text-[60px] text-[32px] mt-6 tracking-tight leading-tight`}
       >
         <div className="overflow-hidden">
           <motion.div
