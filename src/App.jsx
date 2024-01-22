@@ -32,7 +32,9 @@ const App = () => {
   }, []);
   return (
     <main
-      className={`main ${isDarkMode ? "bg-secondary" : "bg-white "} duration`}
+      className={`main ${
+        isDarkMode ? "bg-secondary" : "bg-white-100 "
+      } duration`}
     >
       <AnimatePresence mode="wait">
         {isLoading && <Preloader />}

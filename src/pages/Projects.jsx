@@ -3,6 +3,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { projects } from "../constants";
+import {
+  fadeIn,
+  slideIn,
+  slideUpAbout,
+  staggerContainer,
+} from "../utils/motion";
 
 const Projects = forwardRef(function index(props, ref) {
   const darkModeRef = useRef(null);
@@ -57,13 +63,22 @@ const Projects = forwardRef(function index(props, ref) {
         <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
           My work
         </p>
-        <h1
-          className={`text-4xl font-bold font-generalSans ${
-            props.isDarkMode ? "text-white-300" : "text-tertiary"
-          } sl:md:text-[60px] uppercase`}
+        <motion.div
+          variants={staggerContainer()}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="overflow-hidden py-2"
         >
-          Projects.
-        </h1>
+          <motion.h1
+            variants={slideIn("up", "tween", 0, 0.5)}
+            className={`text-4xl font-bold font-generalSans ${
+              props.isDarkMode ? "text-white-300" : "text-tertiary"
+            } sl:md:text-[60px] uppercase`}
+          >
+            Projects.
+          </motion.h1>
+        </motion.div>
         <p className="md:mt-8 mt-5 md:text-[22px] font-normal text-white-300 max-w-3xl">
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
@@ -167,7 +182,7 @@ const ProjectsVideos = ({ index, video, url, title }) => {
 const ProjectsTexts = ({ num, title, body, tags }) => {
   return (
     <div className="h-[100vh] flex flex-col justify-center">
-      <h4 className="text-white-100 font-medium xl:text-[30px] font-generalSans">
+      <h4 className="text-white-300 font-semibold xl:text-[50px] font-generalSans">
         {num}
       </h4>
       <h1 className="text-white-100 font-semibold xl:text-[35px] text-[25px] font-generalSans">

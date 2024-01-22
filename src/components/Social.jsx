@@ -1,4 +1,5 @@
 import React, { forwardRef } from "react";
+import { motion } from "framer-motion";
 import {
   Github,
   GithubW,
@@ -11,7 +12,10 @@ import Magent from "./Magent";
 
 const Social = forwardRef(function index(props, ref) {
   return (
-    <div
+    <motion.div
+      initial={{ x: -200 }}
+      animate={{ x: 0 }}
+      transition={{ delay: 3, duration: 1 }}
       ref={ref}
       className="xl:flex hidden flex-col w-auto h-auto fixed bottom-0 left-0 ml-12 mb-16 gap-9"
     >
@@ -42,7 +46,7 @@ const Social = forwardRef(function index(props, ref) {
           )}
         </a>
       </Magent>
-    </div>
+    </motion.div>
   );
 });
 

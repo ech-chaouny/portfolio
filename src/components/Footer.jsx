@@ -4,7 +4,7 @@ import { BackTop, Github, Instagram, Linkedin } from "../assets";
 const Footer = ({ backTop }) => {
   return (
     <>
-      <div className="flex flex-col sl:justify-between sl:flex-row justify-center bg-white-100 items-center text-[16px] py-8 sl:px-24 gap-4">
+      <div className="flex flex-col sl:justify-between sl:flex-row justify-center bg-white-200 items-center text-[16px] py-8 sl:px-24 gap-4">
         <span className="font-generalSans font-medium text-secondary">
           Website designed by @me
         </span>

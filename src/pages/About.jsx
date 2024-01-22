@@ -3,7 +3,13 @@ import React, { useEffect, useRef } from "react";
 import { MyPhoto } from "../assets";
 import { motion, useScroll, useInView } from "framer-motion";
 import Technologies from "../components/Technologies";
-import { slideUpAbout } from "../utils/motion";
+import {
+  fadeIn,
+  slideIn,
+  slideUpAbout,
+  staggerContainer,
+  textVariant,
+} from "../utils/motion";
 
 const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
   const phrase = [
@@ -76,18 +82,40 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
       <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
         Introduction
       </p>
-      <h1
-        className={`text-4xl font-bold font-generalSans ${
-          isDarkMode ? "text-white-300" : "text-tertiary"
-        } sl:md:text-[60px] uppercase`}
+      <motion.div
+        variants={staggerContainer()}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        className="overflow-hidden py-2"
       >
-        About Me.
-      </h1>
+        <motion.h1
+          variants={slideIn("up", "tween", 0, 0.5)}
+          className={`text-4xl font-bold font-generalSans ${
+            isDarkMode ? "text-white-300" : "text-tertiary"
+          } sl:md:text-[60px] uppercase`}
+        >
+          About Me.
+        </motion.h1>
+      </motion.div>
+
       <div className="paddingY flex flex-col sl:flex-row justify-center items-center gap-10">
-        <div className="w-full sl:w-[83%] h-full">
+        <motion.div
+          variants={fadeIn("up", "", 0.2, 0.7)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="w-full sl:w-[83%] h-full"
+        >
           <img src={MyPhoto} alt="profile" className="profile" />
-        </div>
-        <div className="w-full h-full">
+        </motion.div>
+        <motion.div
+          variants={textVariant()}
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.25 }}
+          className="w-full h-full"
+        >
           <h3 className="sm:text-[28px] xs:text-[22px] font-bold font-generalSans text-tertiary">
             A Junior Front-end Developer based in Casablanca, Morroco 📍
           </h3>
@@ -106,7 +134,7 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
             collaborating with cross-functional teams to produce outstanding web
             applications. 💻
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

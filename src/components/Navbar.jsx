@@ -67,9 +67,12 @@ const Navbar = ({ isDarkMode }) => {
   };
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ delay: 2.3, duration: 1 }}
         className={`sm:px-10 px-8 w-full flex items-center justify-between z-10 py-5 fixed duration ${
-          isDarkMode ? "bg-secondary" : "bg-white "
+          isDarkMode ? "bg-secondary" : "bg-white-100"
         }`}
       >
         <a
@@ -132,7 +135,7 @@ const Navbar = ({ isDarkMode }) => {
             />
           )}
         </nav>
-      </header>
+      </motion.header>
       <AnimatePresence>
         {toggle && (
           <motion.div

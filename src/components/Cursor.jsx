@@ -5,7 +5,7 @@ const Cursor = ({ stickyElement, socialElement, projectElement }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [socialHovred, setSocialHovred] = useState(false);
   const [isProject, setIsProject] = useState(false);
-  const cursorSize = isHovered ? 200 : socialHovred ? 40 : isProject ? 80 : 20;
+  const cursorSize = isHovered ? 200 : socialHovred ? 40 : isProject ? 90 : 20;
 
   const mouse = {
     x: useMotionValue(0),
@@ -66,7 +66,6 @@ const Cursor = ({ stickyElement, socialElement, projectElement }) => {
       style={{
         left: smoothMouse.x,
         top: smoothMouse.y,
-        opacity: "80%",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -74,11 +73,11 @@ const Cursor = ({ stickyElement, socialElement, projectElement }) => {
       animate={{
         width: cursorSize,
         height: cursorSize,
-        backgroundColor: isProject ? "white" : "",
+        backgroundColor: isProject ? "#696963" : "",
       }}
       className="cursor lg:flex hidden"
     >
-      <span className="text-black text-[18px] font-medium">Click</span>
+      <span className="text-white-100 text-[18px] font-medium">View</span>
     </motion.div>
   ) : (
     <motion.div

@@ -50,7 +50,7 @@ export const technologies = [
 export const projects = [
   {
     url: "https://www.github/echchaouny.com",
-    num: "1",
+    num: "01",
     video: GTA,
     title: "GTA 6 Website",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
@@ -72,7 +72,7 @@ export const projects = [
 
   {
     url: "https://www.github.com",
-    num: "2",
+    num: "02",
     video: Agency,
     title: "Landing page agency",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
@@ -94,7 +94,7 @@ export const projects = [
 
   {
     url: "www.facebook.com",
-    num: "3",
+    num: "03",
     video: GTA,
     title: "GTA 6 Website",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
