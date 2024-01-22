@@ -61,27 +61,13 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
           WHO I'M
         </h4>
         <p
-          ref={aboutPhrase}
           className={`pt-8 text-3xl sm:text-[40px] xl:text-[4rem] ${
             isDarkMode ? "text-white-300" : "text-tertiary"
           } font-semibold font-generalSans duration leading-10 sm:leading-tight`}
         >
-          {phrase.map((word, index) => {
-            return (
-              <span
-                key={index}
-                className="relative overflow-hidden inline-flex"
-              >
-                <motion.span
-                  variants={slideUpAbout}
-                  custom={index}
-                  animate={isInView ? "open" : "closed"}
-                >
-                  {word}
-                </motion.span>
-              </span>
-            );
-          })}
+          I'm here to craft user interfaces and web applications that
+          seamlessly align with the distinctive concepts and color
+          palettes embedded within your creative vision.
         </p>
       </div>
       <Technologies isDarkMode={isDarkMode} />
@@ -106,15 +92,9 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
       </motion.div>
 
       <div className="paddingY flex flex-col sl:flex-row justify-center items-center gap-10">
-        <motion.div
-          variants={fadeIn("up", "", 0.2, 0.7)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="w-full sl:w-[83%] h-full"
-        >
+        <div className="w-full sl:w-[83%] h-full">
           <img src={MyPhoto} alt="profile" className="profile" />
-        </motion.div>
+        </div>
         <motion.div
           variants={textVariant()}
           initial={"hidden"}

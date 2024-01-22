@@ -9,6 +9,7 @@ import {
   Tailwindcss,
   GTA,
   Agency,
+  GTA1,
 } from "../assets";
 
 export const technologies = [
@@ -95,7 +96,7 @@ export const projects = [
   {
     url: "www.facebook.com",
     num: "03",
-    video: GTA,
+    video: GTA1,
     title: "GTA 6 Website",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     tags: [
