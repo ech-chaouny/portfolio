@@ -23,7 +23,7 @@ body {
   }
 
   .profile {
-    @apply size-auto sl:size-[30rem] object-cover object-center md:aspect-auto md:rounded-[30px] rounded-[20px]
+    @apply size-auto sl:size-[30rem] object-cover object-center md:aspect-auto rounded-[20px]
   }
 }
 
