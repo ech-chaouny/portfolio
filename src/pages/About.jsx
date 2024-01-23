@@ -97,12 +97,12 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
           <img src={MyPhoto} alt="profile" className="profile" />
         </motion.div>
         <div className="w-full h-full">
-          <h3 className="sm:text-[28px] xs:text-[22px] font-bold font-generalSans text-tertiary">
+          <h3 className="sm:text-[28px] text-[21px] font-bold font-generalSans text-tertiary">
             A Junior Front-end Developer based in Casablanca, Morroco 📍
           </h3>
           <p
-            className={`md:mt-8 mt-5 md:text-[22px] font-normal text-black-300 ${
-              isDarkMode ? "text-white-300" : "text-tertiary"
+            className={`md:mt-8 mt-5 md:text-[22px] md:leading-8 text-xl font-normal text-black-300 ${
+              isDarkMode ? "text-white-300" : "text-black-100"
             } `}
           >
             As a Junior Front-End Developer, I focus on developing my skills by

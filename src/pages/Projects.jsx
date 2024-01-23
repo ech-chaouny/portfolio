@@ -79,7 +79,7 @@ const Projects = forwardRef(function index(props, ref) {
             Projects.
           </motion.h1>
         </motion.div>
-        <p className="md:mt-8 mt-5 md:text-[22px] font-normal text-white-300 max-w-3xl">
+        <p className="md:mt-8 mt-5 text-[22px] font-normal text-white-300 max-w-3xl">
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
           links to code repositories and live demos in it. It reflects my
@@ -128,13 +128,13 @@ const ProjectsMobile = ({ video, url, title, num, body, tags }) => {
       </div>
       <div className="mb-14 flex flex-col items-center justify-center text-center">
         <div className="w-[90%] flex flex-col items-center justify-center">
-          <h4 className="text-white-300 font-semibold xl:text-[50px] font-generalSans">
+          <h4 className="text-white-300 font-semibold text-[40px] font-generalSans">
             {num}
           </h4>
-          <h1 className="text-white-100 font-semibold text-[25px] font-generalSans">
+          <h1 className="text-white-100 font-semibold text-[30px] mb-2 font-generalSans">
             {title}
           </h1>
-          <p className="font-normal text-white-300 text-[16px]">{body}</p>
+          <p className="font-normal text-white-300 text-[20px]">{body}</p>
           <div className="flex mt-3 gap-3">
             {tags.map((tag, index) => (
               <div
@@ -170,7 +170,7 @@ const ProjectsVideos = ({ index, video, url, title }) => {
 const ProjectsTexts = ({ num, title, body, tags }) => {
   return (
     <div className="h-[100vh] flex flex-col justify-center">
-      <h4 className="text-white-300 font-semibold xl:text-[50px] font-generalSans">
+      <h4 className="text-white-300 font-semibold text-[50px] font-generalSans">
         {num}
       </h4>
       <h1 className="text-white-100 font-semibold xl:text-[35px] text-[25px] font-generalSans">

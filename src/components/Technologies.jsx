@@ -26,7 +26,7 @@ const Technologies = ({ isDarkMode }) => {
     };
   };
   return (
-    <div className="sl:h-screen flex sl:flex-row flex-col gap-14">
+    <div className="sl:h-screen h-auto sl:mb-auto mb-32 flex sl:flex-row flex-col gap-14">
       <div className="sl:w-1/2 w-full">
         <h1
           className={`${
@@ -36,7 +36,7 @@ const Technologies = ({ isDarkMode }) => {
           TECHNOLOGIES
         </h1>
         <p
-          className={`sl:text-xl mt-5 font-normal ${
+          className={`text-xl mt-5 font-normal ${
             isDarkMode ? "text-white-300" : "text-black-300"
           } duration-500`}
         >
