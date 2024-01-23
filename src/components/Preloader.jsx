@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "../utils/motion";
 
-const words = ["Hello", "I'm", "Ismael", "Ech", "Chaouny"];
+const words = [
+  "Hello",
+  "I'm",
+  "Ismael",
+  "Ech-chaouny",
+  "Welcome",
+  "مَرْحَباً ",
+];
 
 const Preloader = () => {
   const [index, setIndex] = useState(0);
