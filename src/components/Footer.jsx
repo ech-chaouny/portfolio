@@ -16,13 +16,13 @@ const Footer = ({ backTop }) => {
           ISMAEL ECH-CHAOUNY
         </div>
         <div className="flex gap-4">
-          <a href="">
+          <a href="#">
             <Linkedin className="size-5" />
           </a>
-          <a href="">
+          <a href="#">
             <Github className="size-5" />
           </a>
-          <a href="">
+          <a href="#">
             <Instagram className="size-5" />
           </a>
         </div>

@@ -79,20 +79,15 @@ const Contact = ({ isDarkMode }) => {
       <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
         GET IN TOUCH
       </p>
-      <motion.div
-        variants={staggerContainer()}
+      <motion.h1
+        variants={fadeIn("up", "", 0.2, 0.7)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="overflow-hidden py-2"
+        className="text-4xl font-bold font-generalSans text-tertiary sl:md:text-[60px] uppercase"
       >
-        <motion.h1
-          variants={slideIn("left", "tween", 0.2, 0.5)}
-          className="text-4xl font-bold font-generalSans text-tertiary sl:md:text-[60px] uppercase"
-        >
-          Contact.
-        </motion.h1>
-      </motion.div>
+        Contact.
+      </motion.h1>
       <div className="mt-14 flex sl:flex-row flex-col justify-center sl:gap-20 gap-14">
         <motion.div
           variants={fadeIn("up", "", 0.2, 0.7)}

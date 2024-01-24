@@ -69,22 +69,17 @@ const About = ({ setIsDarkMode, isDarkMode, setBackTop }) => {
       <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
         Introduction
       </p>
-      <motion.div
-        variants={staggerContainer()}
+      <motion.h1
+        variants={fadeIn("up", "", 0.2, 0.7)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25 }}
-        className="overflow-hidden py-2"
+        className={`text-4xl font-bold font-generalSans ${
+          isDarkMode ? "text-white-300" : "text-tertiary"
+        } sl:md:text-[60px] uppercase`}
       >
-        <motion.h1
-          variants={slideIn("left", "tween", 0.3, 0.5)}
-          className={`text-4xl font-bold font-generalSans ${
-            isDarkMode ? "text-white-300" : "text-tertiary"
-          } sl:md:text-[60px] uppercase`}
-        >
-          About Me.
-        </motion.h1>
-      </motion.div>
+        About Me.
+      </motion.h1>
 
       <div className="paddingY flex flex-col sl:flex-row justify-center items-center gap-10">
         <motion.div

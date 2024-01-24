@@ -63,29 +63,31 @@ const Projects = forwardRef(function index(props, ref) {
         <p className="sl:text-[18px] text-[16px] font-generalSans text-black-200 uppercase font-medium mb-2 sl:mb-5">
           My work
         </p>
-        <motion.div
-          variants={staggerContainer()}
+
+        <motion.h1
+          variants={fadeIn("up", "", 0.2, 0.7)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.25 }}
-          className="overflow-hidden py-2"
+          className={`text-4xl font-bold font-generalSans ${
+            props.isDarkMode ? "text-white-300" : "text-tertiary"
+          } sl:md:text-[60px] uppercase`}
         >
-          <motion.h1
-            variants={slideIn("left", "tween", 0.2, 0.5)}
-            className={`text-4xl font-bold font-generalSans ${
-              props.isDarkMode ? "text-white-300" : "text-tertiary"
-            } sl:md:text-[60px] uppercase`}
-          >
-            Projects.
-          </motion.h1>
-        </motion.div>
-        <p className="md:mt-8 mt-5 text-[22px] font-normal text-white-300 max-w-3xl">
+          Projects.
+        </motion.h1>
+        <motion.p
+          variants={fadeIn("up", "", 0.2, 0.7)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.25 }}
+          className="md:mt-8 mt-5 text-[22px] font-normal text-white-300 max-w-3xl"
+        >
           Following projects showcases my skills and experience through
           real-world examples of my work. Each project is briefly described with
           links to code repositories and live demos in it. It reflects my
           ability to solve complex problems, work with different technologies,
           and manage projects effectively. 🧩
-        </p>
+        </motion.p>
       </div>
       <div ref={videoRef} className="sl:flex hidden gap-20">
         <div className="w-[70%] h-auto">

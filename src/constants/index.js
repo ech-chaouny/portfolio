@@ -8,8 +8,8 @@ import {
   Nextjs,
   Tailwindcss,
   GTA,
-  Agency,
   Drone,
+  Music,
 } from "../assets";
 
 export const technologies = [
@@ -74,8 +74,8 @@ export const projects = [
   {
     url: "https://www.github.com",
     num: "02",
-    video: Agency,
-    title: "Agency",
+    video: Music,
+    title: "Podcast APP",
     body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
     tags: [
       {
