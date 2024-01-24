@@ -71,7 +71,7 @@ const Projects = forwardRef(function index(props, ref) {
           className="overflow-hidden py-2"
         >
           <motion.h1
-            variants={slideIn("up", "tween", 0, 0.5)}
+            variants={slideIn("left", "tween", 0.2, 0.5)}
             className={`text-4xl font-bold font-generalSans ${
               props.isDarkMode ? "text-white-300" : "text-tertiary"
             } sl:md:text-[60px] uppercase`}
