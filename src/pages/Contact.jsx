@@ -88,9 +88,7 @@ const Contact = ({ isDarkMode }) => {
       >
         <motion.h1
           variants={slideIn("left", "tween", 0.2, 0.5)}
-          className={`text-4xl font-bold font-generalSans ${
-            isDarkMode ? "text-white-300" : "text-tertiary"
-          } sl:md:text-[60px] uppercase `}
+          className="text-4xl font-bold font-generalSans text-tertiary sl:md:text-[60px] uppercase"
         >
           Contact.
         </motion.h1>
